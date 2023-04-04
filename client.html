@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Client</title>
+    <link rel="stylesheet" href="client.css">
+    <script src="client.js"></script>
+    <script src="serverstub.js"></script>
+    <! -- add welcome view inside script tag -->
+    <script type="text/view" id="welcomeview">
+<div id="parent">
+    <!-- Div for the welcome image -->
+    <div id="wimage">
+        <img src="images/wimage.png" alt="wimage">
+    </div>
+
+    <!-- Div for the forms container -->
+    <div id="forms_container">
+    <!-- Div for the signin form -->
+    <div id="signin">
+        <form method="post", id="signinForm">
+            <label for="email_signin">Email:</label>
+            <input type="text" name="email" id="email_signin" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+            <label for="password_signin">Password:</label>
+            <input type="password" name="password" id="password_signin" required minlength="8">
+            <input type="submit" value="Sign In" id="submit_signin">
+        </form>
+        <p id="errorMessageSignIn"></p>
+    </div>
+
+    <!-- Div for the signup form -->
+    <div id="signup">
+        <h2>Sign Up here</h2>
+        <form method="post", id="signupForm">
+            <label for="email_signup">Email:</label>
+            <input type="text" name="email" id="email_signup" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+            <label for="password_signup">Password:</label>
+            <input type="password" name="password" id="password_signup" required minlength="8">
+            <label for="password_repeat">Repeat Password:</label>
+            <input type="password" name="password_repeat" id="password_repeat" required minlength="8" oninput="checkPasswords(this)">
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" id="first_name" required>
+            <label for="family_name">Family Name:</label>
+            <input type="text" name="family_name" id="family_name" required>
+            <label for="gender">Gender:</label>
+            <select name="gender" id="gender" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="non-binary">Non-binary</option>
+            </select>
+            <label for="city">City:</label>
+            <input type="text" name="city" id="city" required>
+            <label for="country">Country:</label>
+            <input type="text" name="country" id="country" required>
+            <input type="submit" value="Sign Up" id="submit_signup">
+            </form>
+            <p id="errorMessageSignUp"></p>
+        </div>
+    </div>
+</div>
+    </script>
+    <script type="text/view" id="profileview">
+    <h1>Profile page</h1>
+    <div class="tabs">
+  <button id="home-tab" class="tab-btn active">Home</button>
+  <button id="browse-tab" class="tab-btn">Browse</button>
+  <button id="account-tab" class="tab-btn">Account</button>
+</div>
+
+<div class="panels">
+  <div id="home-panel" class="panel active">
+    <div id="user-info">
+      <h1>User Information</h1>
+      <p><strong>Email:</strong> <span id="email_home_panel"></span></p>
+      <p><strong>First Name:</strong> <span id="firstname_home_panel"></span></p>
+      <p><strong>Family Name:</strong> <span id="familyname_home_panel"></span></p>
+      <p><strong>Gender:</strong> <span id="gender_home_panel"></span></p>
+      <p><strong>City:</strong> <span id="city_home_panel"></span></p>
+      <p><strong>Country:</strong> <span id="country_home_panel"></span></p>
+    </div>
+    <div id="user-wall">
+      <h1>Wall</h1>
+      <div id="messages"></div>
+      <button id="reload_button">Reload Wall</button>
+    </div>
+    <div id="wall_posts">
+      <h1>Post Message</h1>
+      <textarea id="message_textarea"></textarea>
+      <button id="post_button">Post</button>
+    </div>
+  </div>
+  <div id="browse-panel" class="panel">
+  <div id="browse-form">
+    <input type="text" id="browse-email" placeholder="Enter email address">
+    <button id="browse-submit">Search</button>
+  </div>
+  <div id="browse-result">
+  <p id="search-status"></p>
+    <div id="browse-user-info">
+      <h1>User Information</h1>
+      <p><strong>Email:</strong> <span id="email_browse_user"></span></p>
+      <p><strong>First Name:</strong> <span id="firstname_browse_user"></span></p>
+      <p><strong>Family Name:</strong> <span id="familyname_browse_user"></span></p>
+      <p><strong>Gender:</strong> <span id="gender_browse_user"></span></p>
+      <p><strong>City:</strong> <span id="city_browse_user"></span></p>
+      <p><strong>Country:</strong> <span id="country_browse_user"></span></p>
+    </div>
+    <div id="browse-user-wall">
+      <h1>Wall</h1>
+      <div id="messages_browse_user"></div>
+      <button id="reload_button_browse">Reload Wall</button>
+    </div>
+    <div id="browse-wall_posts">
+      <h1>Post Message</h1>
+      <textarea id="message_textarea_browse"></textarea>
+      <button id="post_button_browse">Post</button>
+    </div>
+  </div>
+</div>
+
+<div id="account-panel" class="panel">
+  <div id="changePasswordFormContainer">
+    <h3>Change Password</h3>
+    <form id="changePasswordForm">
+      <div class="form-group">
+        <label for="oldPassword">Old Password:</label>
+        <input type="password" class="form-control" id="oldPassword" required minlength="8">
+      </div>
+      <div class="form-group">
+        <label for="newPassword">New Password:</label>
+        <input type="password" class="form-control" id="newPassword" required minlength="8">
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirm New Password:</label>
+        <input type="password" class="form-control" id="confirmPassword" required minlength="8">
+      </div>
+      <button type="submit" class="btn btn-primary" id="change_pass_btn">Change Password</button>
+    </form>
+    <div id="changePasswordMessage" class="alert alert-danger"></div>
+  </div>
+  <button class="btn btn-danger" id="signOutButton">Sign Out</button>
+</div>
+</div>
+    </script>
+
+</head>
+<body>
+<div id="oneContainer"></div>
+</body>
+</html>

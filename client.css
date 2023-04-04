@@ -1,0 +1,212 @@
+/* client.css */
+
+body {
+    background-color: lightblue;
+}
+
+#parent {
+    width: 600px;
+    height: 400px;
+    margin: 100px auto;
+}
+
+#wimage {
+    width: 340px;
+    height: 400px;
+    float: left;
+    background-color: white;
+    border: 1px solid black;
+}
+
+#divide {
+    width: 10px;
+    height: 400px;
+    float: right;
+    background-color: lightblue;
+}
+
+#forms_container {
+    width: 250px;
+    float: right;
+}
+
+#signin {
+    width: 250px;
+    float: right;
+    background-color: white;
+    border: 1px solid black;
+}
+
+#signin form {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#signin label, #signin input {
+    width: 48%;
+}
+
+#signin input[type=submit] {
+    margin-left: auto;
+}
+
+#signup {
+    width: 250px;
+    margin-top: 25px;
+    float: right;
+    background-color: white;
+    border: 1px solid black;
+}
+
+#signup form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 25px;
+}
+
+#signup label, #signup input{
+    width: 48%;
+}
+
+#signup select {
+    width: 52%;
+}
+
+#signup input[type=submit] {
+    margin-left: auto;
+}
+
+#signup h2 {
+    text-align: center;
+}
+
+#errorMessageSignUp {
+    color: red;
+    text-align: right;
+}
+
+#errorMessageSignIn {
+    color: red;
+    text-align: right;
+}
+
+
+
+.tabs {
+    display: flex;
+}
+
+.tab-btn {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #eee;
+    text-align: center;
+}
+
+.active {
+    background-color: #fff;
+}
+
+.panels {
+    display: flex;
+}
+
+.panel {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+#changePasswordForm .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#changePasswordForm label {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#changePasswordForm input {
+    width: 30%;
+    text-align: center;
+}
+
+#change_pass_btn {
+    display: block;
+    margin: 20px auto;
+}
+
+#changePasswordMessage {
+    text-align: center;
+    width: 60%;
+    margin: 0 auto;
+}
+
+#changePasswordMessage.success {
+    color: green;
+}
+
+#changePasswordMessage.error {
+    color: red;
+}
+
+#changePasswordFormContainer h3 {
+    text-align: center;
+}
+
+#signOutButton {
+    display: block;
+    margin: 0 auto;
+}
+
+#home-panel.active {
+    display: flex;
+    justify-content: space-between;
+}
+
+#user-info, #user-wall, #wall_posts {
+    width: 30%;
+    margin: 10px;
+}
+
+#user-wall, #wall_posts {
+    height: 300px;
+    overflow: auto;
+}
+
+#browse-result {
+    display: flex;
+    justify-content: space-between;
+}
+
+#browse-user-info, #browse-user-wall, #browse-wall_posts {
+    width: 30%;
+    margin: 10px;
+}
+
+#browse-user-wall, #browse-wall_posts {
+    height: 300px;
+    overflow: auto;
+}
+
+#errorMessageSignUp, #errorMessageSignIn {
+    display: none;
+    text-align: right;
+}
+
+#changePasswordMessage {
+    display: none;
+}
